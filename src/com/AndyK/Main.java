@@ -40,7 +40,11 @@ public class Main {
         if (!file4.exists()) {
             Config.createcfg();
         }
-        port = Integer.parseInt(Config.getvalue("port"));
+        if ((Config.getvalue("port") != null)) {
+            port = Integer.parseInt(Config.getvalue("port"));
+        } else {
+            port = 80;
+        }
         datadir = Config.getvalue("datadir");
         fileext = Config.getvalue("fileext");
 

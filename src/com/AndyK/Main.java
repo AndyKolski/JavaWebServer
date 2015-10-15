@@ -54,7 +54,10 @@ public class Main {
             File file3 = new File(System.getProperty("user.dir") + slash + datadir + slash + "index." + fileext);
             if (!file2.exists()) {
                 if (file2.mkdir()) {
-                    file3.createNewFile();
+
+                    if (!file3.createNewFile()) {
+                        System.out.println("Cannot create data file");
+                    }
                     FileWriter fw = new FileWriter(file3);
                     BufferedWriter out = new BufferedWriter(fw);
 
